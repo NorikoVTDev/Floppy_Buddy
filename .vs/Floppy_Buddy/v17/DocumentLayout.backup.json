@@ -1,14 +1,17 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Silver\\Documents\\GitHub\\Floppy_Buddy\\",
+  "WorkspaceRootPath": "C:\\GitHub\\Floppy_Buddy\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{12E8F052-6E3B-B676-B3D2-5222DE5FDE1A}|Assembly-CSharp.csproj|c:\\users\\silver\\documents\\github\\floppy_buddy\\assets\\scripts\\enemyspawner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{12E8F052-6E3B-B676-B3D2-5222DE5FDE1A}|Assembly-CSharp.csproj|c:\\github\\floppy_buddy\\assets\\scripts\\swipehim.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{12E8F052-6E3B-B676-B3D2-5222DE5FDE1A}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\swipehim.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{12E8F052-6E3B-B676-B3D2-5222DE5FDE1A}|Assembly-CSharp.csproj|c:\\github\\floppy_buddy\\assets\\scripts\\enemyspawner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{12E8F052-6E3B-B676-B3D2-5222DE5FDE1A}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\enemyspawner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Silver\\Documents\\GitHub\\Floppy_Buddy\\Assets\\TestingClickDrag.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\TestingClickDrag.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Silver\\Documents\\GitHub\\Floppy_Buddy\\Assets\\TestingClickDrag.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -23,24 +26,37 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "swipeHim.cs",
+              "DocumentMoniker": "C:\\GitHub\\Floppy_Buddy\\Assets\\Scripts\\swipeHim.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\swipeHim.cs",
+              "ToolTip": "C:\\GitHub\\Floppy_Buddy\\Assets\\Scripts\\swipeHim.cs",
+              "RelativeToolTip": "Assets\\Scripts\\swipeHim.cs",
+              "ViewState": "AgIAABsAAAAAAAAAAAAYwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-21T10:33:46.385Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "EnemySpawner.cs",
-              "DocumentMoniker": "C:\\Users\\Silver\\Documents\\GitHub\\Floppy_Buddy\\Assets\\Scripts\\EnemySpawner.cs",
+              "DocumentMoniker": "C:\\GitHub\\Floppy_Buddy\\Assets\\Scripts\\EnemySpawner.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\EnemySpawner.cs",
-              "ToolTip": "C:\\Users\\Silver\\Documents\\GitHub\\Floppy_Buddy\\Assets\\Scripts\\EnemySpawner.cs",
+              "ToolTip": "C:\\GitHub\\Floppy_Buddy\\Assets\\Scripts\\EnemySpawner.cs",
               "RelativeToolTip": "Assets\\Scripts\\EnemySpawner.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAMAAAAAAAAAA==",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAAwBgAAAAeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-20T00:27:31.475Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "TestingClickDrag.cs",
               "DocumentMoniker": "C:\\Users\\Silver\\Documents\\GitHub\\Floppy_Buddy\\Assets\\TestingClickDrag.cs",
-              "RelativeDocumentMoniker": "Assets\\TestingClickDrag.cs",
+              "RelativeDocumentMoniker": "..\\..\\Users\\Silver\\Documents\\GitHub\\Floppy_Buddy\\Assets\\TestingClickDrag.cs",
               "ToolTip": "C:\\Users\\Silver\\Documents\\GitHub\\Floppy_Buddy\\Assets\\TestingClickDrag.cs",
-              "RelativeToolTip": "Assets\\TestingClickDrag.cs",
+              "RelativeToolTip": "..\\..\\Users\\Silver\\Documents\\GitHub\\Floppy_Buddy\\Assets\\TestingClickDrag.cs",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-19T02:24:20.516Z"
             }

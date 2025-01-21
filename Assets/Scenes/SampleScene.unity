@@ -285,6 +285,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1082271958561512970, guid: 2b0c9c1f1d831fe4f9bc009a1e5c69e4, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1951843262}
+    - targetCorrespondingSourceObject: {fileID: 1082271958561512970, guid: 2b0c9c1f1d831fe4f9bc009a1e5c69e4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1951843263}
     - targetCorrespondingSourceObject: {fileID: 3135921509060577837, guid: 2b0c9c1f1d831fe4f9bc009a1e5c69e4, type: 3}
       insertIndex: -1
       addedObject: {fileID: 436538755}
@@ -2251,7 +2254,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 1951843261}
-  offset: {x: -5, y: 5, z: 4}
+  offset: {x: -4.2, y: 5, z: 4}
   smoothSpeed: 0.125
 --- !u!1 &1152416155
 GameObject:
@@ -3827,6 +3830,19 @@ MonoBehaviour:
   applyToAllParts: 1
   addRandomForce: 1
   randomForceMultiplier: 3
+--- !u!114 &1951843263
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1951843255}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37eca4f4e202d064dabed0398a7bb264, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jumpForce: 50
 --- !u!1 &1973558948 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -290750445479886849, guid: 2b0c9c1f1d831fe4f9bc009a1e5c69e4, type: 3}
