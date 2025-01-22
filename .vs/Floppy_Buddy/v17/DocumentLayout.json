@@ -3,6 +3,14 @@
   "WorkspaceRootPath": "C:\\GitHub\\Floppy_Buddy\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{12E8F052-6E3B-B676-B3D2-5222DE5FDE1A}|Assembly-CSharp.csproj|c:\\github\\floppy_buddy\\assets\\rotatehim.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{12E8F052-6E3B-B676-B3D2-5222DE5FDE1A}|Assembly-CSharp.csproj|solutionrelative:assets\\rotatehim.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{12E8F052-6E3B-B676-B3D2-5222DE5FDE1A}|Assembly-CSharp.csproj|c:\\github\\floppy_buddy\\assets\\weirdflying.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{12E8F052-6E3B-B676-B3D2-5222DE5FDE1A}|Assembly-CSharp.csproj|solutionrelative:assets\\weirdflying.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{12E8F052-6E3B-B676-B3D2-5222DE5FDE1A}|Assembly-CSharp.csproj|c:\\github\\floppy_buddy\\assets\\jump.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{12E8F052-6E3B-B676-B3D2-5222DE5FDE1A}|Assembly-CSharp.csproj|solutionrelative:assets\\jump.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -11,7 +19,7 @@
       "RelativeMoniker": "D:0:0:{12E8F052-6E3B-B676-B3D2-5222DE5FDE1A}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\swipehim.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{12E8F052-6E3B-B676-B3D2-5222DE5FDE1A}|Assembly-CSharp.csproj|C:\\GitHub\\Floppy_Buddy\\assets\\scripts\\enemyspawner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{12E8F052-6E3B-B676-B3D2-5222DE5FDE1A}|Assembly-CSharp.csproj|c:\\github\\floppy_buddy\\assets\\scripts\\enemyspawner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{12E8F052-6E3B-B676-B3D2-5222DE5FDE1A}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\enemyspawner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -30,6 +38,32 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "RotateHim.cs",
+              "DocumentMoniker": "C:\\GitHub\\Floppy_Buddy\\Assets\\RotateHim.cs",
+              "RelativeDocumentMoniker": "Assets\\RotateHim.cs",
+              "ToolTip": "C:\\GitHub\\Floppy_Buddy\\Assets\\RotateHim.cs",
+              "RelativeToolTip": "Assets\\RotateHim.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAwwC0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-22T03:58:26.006Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "weirdflying.cs",
+              "DocumentMoniker": "C:\\GitHub\\Floppy_Buddy\\Assets\\weirdflying.cs",
+              "RelativeDocumentMoniker": "Assets\\weirdflying.cs",
+              "ToolTip": "C:\\GitHub\\Floppy_Buddy\\Assets\\weirdflying.cs",
+              "RelativeToolTip": "Assets\\weirdflying.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-22T03:56:18.569Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "Jump.cs",
               "DocumentMoniker": "C:\\GitHub\\Floppy_Buddy\\Assets\\Jump.cs",
               "RelativeDocumentMoniker": "Assets\\Jump.cs",
@@ -42,7 +76,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "swipeHim.cs",
               "DocumentMoniker": "C:\\GitHub\\Floppy_Buddy\\Assets\\Scripts\\swipeHim.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\swipeHim.cs",
@@ -50,12 +84,11 @@
               "RelativeToolTip": "Assets\\Scripts\\swipeHim.cs",
               "ViewState": "AgIAABsAAAAAAAAAAAAYwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-21T10:33:46.385Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-21T10:33:46.385Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "EnemySpawner.cs",
               "DocumentMoniker": "C:\\GitHub\\Floppy_Buddy\\Assets\\Scripts\\EnemySpawner.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\EnemySpawner.cs",
@@ -67,7 +100,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "TestingClickDrag.cs",
               "DocumentMoniker": "C:\\Users\\Silver\\Documents\\GitHub\\Floppy_Buddy\\Assets\\TestingClickDrag.cs",
               "RelativeDocumentMoniker": "..\\..\\Users\\Silver\\Documents\\GitHub\\Floppy_Buddy\\Assets\\TestingClickDrag.cs",
