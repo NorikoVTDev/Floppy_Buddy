@@ -2,12 +2,21 @@ using UnityEngine;
 
 public class SwipeHim : MonoBehaviour
 {
+    public enum ForceModeSelector
+    {
+        Force,
+        Impulse,
+        VelocityChange,
+        Acceleration
+    }
+
     public Camera mainCamera;
     public float forceMultiplier = 2f;
     public float minSwipeDistance = 50f;
     public bool applyToAllParts = true;
     public bool addRandomForce = true;
     public float randomForceMultiplier = 3f;
+    public ForceModeSelector forceMode = ForceModeSelector.Impulse;
 
     private Vector2 swipeStartPosition;
     private Vector2 swipeEndPosition;
@@ -50,30 +59,47 @@ public class SwipeHim : MonoBehaviour
             return;
         }
 
-        if (!applyToAllParts){
+        ForceMode selectedForceMode = ConvertForceMode(forceMode);
 
+        if (!applyToAllParts){
             // Get the Rigidbody component of this object
             Rigidbody thisRigidbody = gameObject.GetComponent<Rigidbody>();
 
-            thisRigidbody.AddForce(direction * speed * forceMultiplier, ForceMode.Impulse);
+            thisRigidbody.AddForce(direction * speed * forceMultiplier, selectedForceMode);
             if (addRandomForce) {
                 Vector3 randomDirection = new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), Random.Range(-1f, 1f));
-                thisRigidbody.AddForce(randomDirection * speed * randomForceMultiplier, ForceMode.Impulse);
+                thisRigidbody.AddForce(randomDirection * speed * randomForceMultiplier, selectedForceMode);
             }
-
         }
         else {
             Rigidbody[] ragdollRigidbodies = GetComponentsInChildren<Rigidbody>();
 
             foreach (Rigidbody rb in ragdollRigidbodies) {
-                rb.AddForce(direction * speed * forceMultiplier, ForceMode.Impulse);
+                rb.AddForce(direction * speed * forceMultiplier, selectedForceMode);
                 // Also apply a force in a random direction
                 if (addRandomForce)
                 {
                     Vector3 randomDirection = new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), Random.Range(-1f, 1f));
-                    rb.AddForce(randomDirection * speed * randomForceMultiplier, ForceMode.Impulse);
+                    rb.AddForce(randomDirection * speed * randomForceMultiplier, selectedForceMode);
                 }
             }
+        }
+    }
+
+    ForceMode ConvertForceMode(ForceModeSelector mode)
+    {
+        switch (mode)
+        {
+            case ForceModeSelector.Force:
+                return ForceMode.Force;
+            case ForceModeSelector.Impulse:
+                return ForceMode.Impulse;
+            case ForceModeSelector.VelocityChange:
+                return ForceMode.VelocityChange;
+            case ForceModeSelector.Acceleration:
+                return ForceMode.Acceleration;
+            default:
+                return ForceMode.Impulse;
         }
     }
 }

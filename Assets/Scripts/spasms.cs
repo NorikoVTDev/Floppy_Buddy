@@ -1,32 +1,37 @@
 // he tries to run
 // but he can't
-
 using UnityEngine;
 
-public class TryToRun : MonoBehaviour
+public class SpasmGenerator : MonoBehaviour
 {
-    public float speed = 10f;
-    public float randomForceMultiplier = 3f;
-    // time in seconds between spasms
-    public float spasmFrequency = 0.5f;
+    public float strength = 10f;
+    public float spasmFrequency = 1f;
+
+    private float timer = 0f;
 
     void Update()
     {
-        if (Time.time % spasmFrequency == 0)
+        timer += Time.deltaTime;
+
+        if (timer >= spasmFrequency)
         {
-            spasm(speed);
+            spasm(strength);
+            timer = 0f;
         }
     }
 
-    void spasm(float speed)
+    void spasm(float strength)
     {
-
         Rigidbody[] ragdollRigidbodies = GetComponentsInChildren<Rigidbody>();
 
         foreach (Rigidbody rb in ragdollRigidbodies)
         {
-            Vector3 randomDirection = new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), Random.Range(-1f, 1f));
-            rb.AddForce(randomDirection * speed * randomForceMultiplier, ForceMode.Impulse);
+            Vector3 randomDirection = new Vector3(
+                Random.Range(-1f, 1f), 
+                Random.Range(-1f, 1f), 
+                Random.Range(-1f, 1f)
+            );
+            rb.AddForce(randomDirection * strength, ForceMode.Impulse);
         }
     }
 }
