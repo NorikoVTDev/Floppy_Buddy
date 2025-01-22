@@ -67,6 +67,7 @@
     <Compile Include="Assets\weirdflying.cs" />
     <Compile Include="Assets\RotateHim.cs" />
     <Compile Include="Assets\Scripts\TestingClickDrag.cs" />
+    <Compile Include="Assets\BalloonTest.cs" />
     <Compile Include="Assets\Scripts\EnemySpawner.cs" />
     <Compile Include="Assets\Scripts\followPlayer.cs" />
   </ItemGroup>
