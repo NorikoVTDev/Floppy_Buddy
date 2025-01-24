@@ -3,144 +3,86 @@ using UnityEngine.AI;
 
 public class Enemy : MonoBehaviour
 {
-    // References
-    public EnemySpawner spawner;
-    public Transform player;
+    // References (assign in Inspector or programmatically)
+    [SerializeField] private NavMeshAgent agent;
+    [SerializeField] private Animator animator;
 
-    // AI Settings
-    public float moveSpeed = 3.5f;
-    public float attackRange = 2f;
-    public float guardRange = 5f;
-    public float runAwayThreshold = 30f;
-    public float guardHealthThreshold = 50f;
-    public float jumpCooldown = 2f;
-    public float ragdollCooldown = 3f;
-    public int attackDamage = 10;
-    public bool isRagdoll = false;
-    public Rigidbody playerRb;
-    public GameObject swipeHimObject;
+    // AI Settings (assign in Inspector)
+    [SerializeField] private float moveSpeed = 3.5f;
+    [SerializeField] private float attackRange = 2f;
+    [SerializeField] private float guardRange = 5f;
+    [SerializeField] private float runAwayThreshold = 30f;
+    [SerializeField] private float guardHealthThreshold = 50f;
+    [SerializeField] private int attackDamage = 10;
+    [SerializeField] private float ragdollCooldown = 3f;
 
     // Internal State
-    private NavMeshAgent agent;
-    private Animator animator;
     private int health = 100;
     private bool isAttacking = false;
     private bool isGuarding = false;
     private bool isRunningAway = false;
-    private PlayerHealth playerHealth;
-    private RagdollHelper ragdollHelper;
+    private bool isRagdoll = false;
+
+    private Transform player;
+    public Transform playerRb;
+    private EnemySpawner spawner;
+
+    // Public method to set the player reference
+    public void SetPlayer(Transform playerTransform)
+    {
+        player = playerTransform;
+        if (player == null)
+        {
+            Debug.LogError("Player reference is not assigned!");
+        }
+        else
+        {
+            Debug.Log($"Player reference assigned: {player.name}");
+        }
+    }
+
+    // Public method to set the spawner reference
+    public void SetSpawner(EnemySpawner spawnerReference)
+    {
+        spawner = spawnerReference;
+    }
 
     private void Start()
     {
-        playerHealth = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>();
-        if (playerHealth == null)
-        {
-            Debug.LogError("PlayerHealth component not found on player!");
-        }
-
-        // Get components
-        agent = GetComponent<NavMeshAgent>();
-        animator = GetComponent<Animator>();
-
-        // Configure NavMeshAgent
-        agent.speed = moveSpeed;
-        agent.stoppingDistance = attackRange;
-
-        animator.applyRootMotion = false;
-
-        // Access the playerRb reference from the swipeHim singleton
+        // Access the player reference from the swipeHim singleton
         if (SwipeHim.Instance != null)
         {
-            playerRb = SwipeHim.Instance.playerRb;
+            player = SwipeHim.Instance.playerRb.transform;
+            Debug.Log($"Player reference found: {player != null}");
         }
         else
         {
             Debug.LogError("swipeHim singleton instance not found!");
         }
 
-        // Create body parts if they don't exist
-        CreateBodyParts();
+        // Ensure references are assigned
+        if (agent == null) Debug.LogError("NavMeshAgent is not assigned!");
+        if (animator == null) Debug.LogError("Animator is not assigned!");
 
-        // Add RagdollHelper component dynamically
-        ragdollHelper = gameObject.AddComponent<RagdollHelper>();
-
-        // Configure body parts (you can do this programmatically or via inspector if possible)
-        ragdollHelper.bodyParts = new RagdollHelper.BodyPart[]
-        {
-            new RagdollHelper.BodyPart { transform = transform.Find("Head"), colliderRadius = 0.1f, isSpherical = true },
-            new RagdollHelper.BodyPart { transform = transform.Find("Torso"), colliderSize = new Vector3(0.5f, 1f, 0.3f) },
-            new RagdollHelper.BodyPart { transform = transform.Find("Arm_L"), colliderSize = new Vector3(0.2f, 0.7f, 0.2f) },
-            new RagdollHelper.BodyPart { transform = transform.Find("Arm_R"), colliderSize = new Vector3(0.2f, 0.7f, 0.2f) },
-            new RagdollHelper.BodyPart { transform = transform.Find("Leg_L"), colliderSize = new Vector3(0.3f, 0.9f, 0.3f) },
-            new RagdollHelper.BodyPart { transform = transform.Find("Leg_R"), colliderSize = new Vector3(0.3f, 0.9f, 0.3f) }
-        };
+        // Configure NavMeshAgent
+        agent.speed = moveSpeed;
+        agent.stoppingDistance = attackRange;
 
         // Disable ragdoll physics at the start
-        ragdollHelper.EnableRagdoll(false);
-    }
-
-    private void CreateBodyParts()
-    {
-        // Create the head if it doesn't exist
-        if (transform.Find("Head") == null)
-        {
-            GameObject head = new GameObject("Head");
-            head.transform.SetParent(transform);
-            head.transform.localPosition = new Vector3(0, 1.5f, 0); // Adjust position as needed
-        }
-
-        // Create the torso if it doesn't exist
-        if (transform.Find("Torso") == null)
-        {
-            GameObject torso = new GameObject("Torso");
-            torso.transform.SetParent(transform);
-            torso.transform.localPosition = new Vector3(0, 1f, 0); // Adjust position as needed
-        }
-
-        // Create the left arm if it doesn't exist
-        if (transform.Find("Arm_L") == null)
-        {
-            GameObject armL = new GameObject("Arm_L");
-            armL.transform.SetParent(transform);
-            armL.transform.localPosition = new Vector3(-0.5f, 1f, 0); // Adjust position as needed
-        }
-
-        // Create the right arm if it doesn't exist
-        if (transform.Find("Arm_R") == null)
-        {
-            GameObject armR = new GameObject("Arm_R");
-            armR.transform.SetParent(transform);
-            armR.transform.localPosition = new Vector3(0.5f, 1f, 0); // Adjust position as needed
-        }
-
-        // Create the left leg if it doesn't exist
-        if (transform.Find("Leg_L") == null)
-        {
-            GameObject legL = new GameObject("Leg_L");
-            legL.transform.SetParent(transform);
-            legL.transform.localPosition = new Vector3(-0.25f, 0f, 0); // Adjust position as needed
-        }
-
-        // Create the right leg if it doesn't exist
-        if (transform.Find("Leg_R") == null)
-        {
-            GameObject legR = new GameObject("Leg_R");
-            legR.transform.SetParent(transform);
-            legR.transform.localPosition = new Vector3(0.25f, 0f, 0); // Adjust position as needed
-        }
+        EnableRagdoll(false);
     }
 
     private void Update()
     {
-        // Ensure the player reference is valid
-        if (playerRb == null)
+        // Ensure references are valid
+        if (agent == null || animator == null || player == null)
         {
-            Debug.LogError("Player reference is missing!");
+            Debug.LogError("Required references are missing!");
             return;
         }
 
         // Update player location every frame
-        agent.SetDestination(playerRb.position);
+        agent.SetDestination(player.position);
 
         // AI Logic
         float distanceToPlayer = Vector3.Distance(transform.position, player.position);
@@ -165,9 +107,9 @@ public class Enemy : MonoBehaviour
         UpdateAnimations();
     }
 
-    void MoveTowardPlayer()
+    private void MoveTowardPlayer()
     {
-
+        // Move toward the player
     }
 
     private void Attack(float distanceToPlayer)
@@ -177,23 +119,27 @@ public class Enemy : MonoBehaviour
         isAttacking = true;
 
         // Perform attack logic
-        if (playerHealth != null && distanceToPlayer <= attackRange)
+        if (distanceToPlayer <= attackRange)
         {
-            playerHealth.TakeDamage(attackDamage);
-            Debug.Log($"Enemy attacked player for {attackDamage} damage!");
+            PlayerHealth playerHealth = player.GetComponent<PlayerHealth>();
+            if (playerHealth != null)
+            {
+                playerHealth.TakeDamage(attackDamage);
+                Debug.Log($"Enemy attacked player for {attackDamage} damage!");
+            }
         }
 
         // Reset attack state after a delay
         Invoke("ResetAttack", 1f);
     }
 
-    void ResetAttack()
+    private void ResetAttack()
     {
         isAttacking = false;
         agent.isStopped = false;
     }
 
-    void Guard()
+    private void Guard()
     {
         // Stop moving and guard
         agent.isStopped = true;
@@ -206,13 +152,13 @@ public class Enemy : MonoBehaviour
         Invoke("ResetGuard", 2f);
     }
 
-    void ResetGuard()
+    private void ResetGuard()
     {
         isGuarding = false;
         agent.isStopped = false;
     }
 
-    void RunAway()
+    private void RunAway()
     {
         // Move away from the player
         Vector3 direction = (transform.position - player.position).normalized;
@@ -220,7 +166,7 @@ public class Enemy : MonoBehaviour
         isRunningAway = true;
     }
 
-    void UpdateAnimations()
+    private void UpdateAnimations()
     {
         // Update Animator parameters based on the current state
         animator.SetBool("isWalking", agent.velocity.magnitude > 0.1f && !isAttacking && !isGuarding && !isRunningAway);
@@ -255,18 +201,10 @@ public class Enemy : MonoBehaviour
         animator.enabled = false;
 
         // Enable ragdoll physics
-        ragdollHelper.EnableRagdoll(true);
+        EnableRagdoll(true);
 
         // Start cooldown to get back up
         Invoke("GetUp", ragdollCooldown);
-    }
-
-    private void ApplyRagdollForce(Vector3 direction, float strength)
-    {
-        foreach (Rigidbody rb in ragdollHelper.GetRagdollRigidbodies())
-        {
-            rb.AddForce(direction * strength, ForceMode.Impulse);
-        }
     }
 
     private void GetUp()
@@ -274,19 +212,50 @@ public class Enemy : MonoBehaviour
         isRagdoll = false;
 
         // Disable ragdoll physics
-        ragdollHelper.EnableRagdoll(false);
+        EnableRagdoll(false);
 
         // Re-enable AI and animator
         animator.enabled = true;
         agent.enabled = true;
 
-        // Reset the NavMeshAgent's destination
-        agent.isStopped = false;
-        agent.SetDestination(playerRb.position);
-
         // Reset the enemy's position and rotation
         transform.position = GetGroundPosition();
         transform.rotation = Quaternion.identity;
+    }
+
+    private void EnableRagdoll(bool enabled)
+    {
+        // Enable/disable ragdoll physics for all Rigidbody and Collider components
+        Rigidbody[] rigidbodies = GetComponentsInChildren<Rigidbody>();
+        Collider[] colliders = GetComponentsInChildren<Collider>();
+
+        foreach (Rigidbody rb in rigidbodies)
+        {
+            rb.isKinematic = !enabled;
+        }
+
+        foreach (Collider col in colliders)
+        {
+            col.enabled = enabled;
+        }
+
+        // Disable the main Collider and Rigidbody when in ragdoll mode
+        Collider mainCollider = GetComponent<Collider>();
+        Rigidbody mainRigidbody = GetComponent<Rigidbody>();
+
+        if (mainCollider != null) mainCollider.enabled = !enabled;
+        if (mainRigidbody != null) mainRigidbody.isKinematic = enabled;
+    }
+
+    private void ApplyRagdollForce(Vector3 direction, float strength)
+    {
+        // Apply force to all Rigidbody components
+        Rigidbody[] rigidbodies = GetComponentsInChildren<Rigidbody>();
+
+        foreach (Rigidbody rb in rigidbodies)
+        {
+            rb.AddForce(direction * strength, ForceMode.Impulse);
+        }
     }
 
     private Vector3 GetGroundPosition()
@@ -299,15 +268,15 @@ public class Enemy : MonoBehaviour
         return transform.position;
     }
 
-    void Die()
+    private void Die()
     {
         // Disable AI and animator
         agent.enabled = false;
         animator.enabled = false;
 
         // Enable ragdoll physics permanently
-        ragdollHelper.EnableRagdoll(true);
-        
+        EnableRagdoll(true);
+
         // Notify the spawner that this enemy has been killed
         if (spawner != null)
         {
@@ -316,17 +285,5 @@ public class Enemy : MonoBehaviour
 
         // Destroy the enemy object after a delay
         Destroy(gameObject, 5f);
-    }
-
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (isRagdoll) return;
-
-        // Calculate collision force
-        float collisionForce = collision.impulse.magnitude / Time.fixedDeltaTime;
-        Vector3 forceDirection = collision.contacts[0].normal;
-
-        // Apply damage and force to the ragdoll
-        TakeDamage(10, -forceDirection, collisionForce * 0.1f);
     }
 }

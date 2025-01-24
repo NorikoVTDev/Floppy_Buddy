@@ -63,7 +63,6 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\spasms.cs" />
     <Compile Include="Assets\Scripts\swipeHim.cs" />
-    <Compile Include="Assets\Scripts\RagdollHelper.cs" />
     <Compile Include="Assets\Scripts\RotateHim.cs" />
     <Compile Include="Assets\Scripts\Jump.cs" />
     <Compile Include="Assets\Scripts\PlayerHealth.cs" />

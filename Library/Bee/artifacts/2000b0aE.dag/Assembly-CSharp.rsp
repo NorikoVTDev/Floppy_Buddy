@@ -389,7 +389,6 @@
 "Assets/Scripts/NavMeshGenerator.cs"
 "Assets/Scripts/PlayerCollisionDamage.cs"
 "Assets/Scripts/PlayerHealth.cs"
-"Assets/Scripts/RagdollHelper.cs"
 "Assets/Scripts/RotateHim.cs"
 "Assets/Scripts/spasms.cs"
 "Assets/Scripts/swipeHim.cs"

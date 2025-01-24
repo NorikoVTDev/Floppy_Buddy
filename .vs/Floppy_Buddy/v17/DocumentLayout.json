@@ -3,36 +3,24 @@
   "WorkspaceRootPath": "C:\\Users\\Silver\\Documents\\GitHub\\Floppy_Buddy\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{12E8F052-6E3B-B676-B3D2-5222DE5FDE1A}|Assembly-CSharp.csproj|C:\\Users\\Silver\\Documents\\GitHub\\Floppy_Buddy\\assets\\scripts\\enemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{12E8F052-6E3B-B676-B3D2-5222DE5FDE1A}|Assembly-CSharp.csproj|c:\\users\\silver\\documents\\github\\floppy_buddy\\assets\\scripts\\enemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{12E8F052-6E3B-B676-B3D2-5222DE5FDE1A}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\enemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{12E8F052-6E3B-B676-B3D2-5222DE5FDE1A}|Assembly-CSharp.csproj|c:\\users\\silver\\documents\\github\\floppy_buddy\\assets\\scripts\\ragdollhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{12E8F052-6E3B-B676-B3D2-5222DE5FDE1A}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\ragdollhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{12E8F052-6E3B-B676-B3D2-5222DE5FDE1A}|Assembly-CSharp.csproj|c:\\users\\silver\\documents\\github\\floppy_buddy\\assets\\scripts\\playercollisiondamage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{12E8F052-6E3B-B676-B3D2-5222DE5FDE1A}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\playercollisiondamage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{12E8F052-6E3B-B676-B3D2-5222DE5FDE1A}|Assembly-CSharp.csproj|C:\\Users\\Silver\\Documents\\GitHub\\Floppy_Buddy\\assets\\scripts\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{12E8F052-6E3B-B676-B3D2-5222DE5FDE1A}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{12E8F052-6E3B-B676-B3D2-5222DE5FDE1A}|Assembly-CSharp.csproj|C:\\Users\\Silver\\Documents\\GitHub\\Floppy_Buddy\\assets\\scripts\\swipehim.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{12E8F052-6E3B-B676-B3D2-5222DE5FDE1A}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\swipehim.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{12E8F052-6E3B-B676-B3D2-5222DE5FDE1A}|Assembly-CSharp.csproj|C:\\Users\\Silver\\Documents\\GitHub\\Floppy_Buddy\\assets\\scripts\\playerhealth.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{12E8F052-6E3B-B676-B3D2-5222DE5FDE1A}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\playerhealth.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{12E8F052-6E3B-B676-B3D2-5222DE5FDE1A}|Assembly-CSharp.csproj|C:\\Users\\Silver\\Documents\\GitHub\\Floppy_Buddy\\assets\\scripts\\enemyspawner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{12E8F052-6E3B-B676-B3D2-5222DE5FDE1A}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\enemyspawner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{12E8F052-6E3B-B676-B3D2-5222DE5FDE1A}|Assembly-CSharp.csproj|C:\\Users\\Silver\\Documents\\GitHub\\Floppy_Buddy\\assets\\scripts\\navmeshgenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{12E8F052-6E3B-B676-B3D2-5222DE5FDE1A}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\navmeshgenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{12E8F052-6E3B-B676-B3D2-5222DE5FDE1A}|Assembly-CSharp.csproj|C:\\Users\\Silver\\Documents\\GitHub\\Floppy_Buddy\\assets\\scripts\\playercollisiondamage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{12E8F052-6E3B-B676-B3D2-5222DE5FDE1A}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\playercollisiondamage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{12E8F052-6E3B-B676-B3D2-5222DE5FDE1A}|Assembly-CSharp.csproj|C:\\Users\\Silver\\Documents\\GitHub\\Floppy_Buddy\\assets\\scripts\\playerhealth.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{12E8F052-6E3B-B676-B3D2-5222DE5FDE1A}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\playerhealth.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{12E8F052-6E3B-B676-B3D2-5222DE5FDE1A}|Assembly-CSharp.csproj|C:\\Users\\Silver\\Documents\\GitHub\\Floppy_Buddy\\assets\\scripts\\swipehim.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{12E8F052-6E3B-B676-B3D2-5222DE5FDE1A}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\swipehim.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -42,19 +30,19 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "RagdollHelper.cs",
-              "DocumentMoniker": "C:\\Users\\Silver\\Documents\\GitHub\\Floppy_Buddy\\Assets\\Scripts\\RagdollHelper.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\RagdollHelper.cs",
-              "ToolTip": "C:\\Users\\Silver\\Documents\\GitHub\\Floppy_Buddy\\Assets\\Scripts\\RagdollHelper.cs",
-              "RelativeToolTip": "Assets\\Scripts\\RagdollHelper.cs",
-              "ViewState": "AgIAAC4AAAAAAAAAAADwvzYAAAAfAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "Enemy.cs",
+              "DocumentMoniker": "C:\\Users\\Silver\\Documents\\GitHub\\Floppy_Buddy\\Assets\\Scripts\\Enemy.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Enemy.cs",
+              "ToolTip": "C:\\Users\\Silver\\Documents\\GitHub\\Floppy_Buddy\\Assets\\Scripts\\Enemy.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Enemy.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACEAAAASAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-23T22:53:01.845Z",
+              "WhenOpened": "2025-01-22T23:26:23.116Z",
               "EditorCaption": ""
             },
             {
@@ -72,7 +60,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 3,
               "Title": "PlayerHealth.cs",
               "DocumentMoniker": "C:\\Users\\Silver\\Documents\\GitHub\\Floppy_Buddy\\Assets\\Scripts\\PlayerHealth.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\PlayerHealth.cs",
@@ -80,7 +68,8 @@
               "RelativeToolTip": "Assets\\Scripts\\PlayerHealth.cs",
               "ViewState": "AgIAAAwAAAAAAAAAAAAiwB8AAAAmAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-23T22:03:39.832Z"
+              "WhenOpened": "2025-01-23T22:03:39.832Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -96,52 +85,16 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "GameManager.cs",
-              "DocumentMoniker": "C:\\Users\\Silver\\Documents\\GitHub\\Floppy_Buddy\\Assets\\Scripts\\GameManager.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\GameManager.cs",
-              "ToolTip": "C:\\Users\\Silver\\Documents\\GitHub\\Floppy_Buddy\\Assets\\Scripts\\GameManager.cs",
-              "RelativeToolTip": "Assets\\Scripts\\GameManager.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAYAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-23T02:30:13.501Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Enemy.cs",
-              "DocumentMoniker": "C:\\Users\\Silver\\Documents\\GitHub\\Floppy_Buddy\\Assets\\Scripts\\Enemy.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Enemy.cs",
-              "ToolTip": "C:\\Users\\Silver\\Documents\\GitHub\\Floppy_Buddy\\Assets\\Scripts\\Enemy.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Enemy.cs",
-              "ViewState": "AgIAABUBAAAAAAAAAAAqwBwBAAAwAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-22T23:26:23.116Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 1,
               "Title": "EnemySpawner.cs",
               "DocumentMoniker": "C:\\Users\\Silver\\Documents\\GitHub\\Floppy_Buddy\\Assets\\Scripts\\EnemySpawner.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\EnemySpawner.cs",
               "ToolTip": "C:\\Users\\Silver\\Documents\\GitHub\\Floppy_Buddy\\Assets\\Scripts\\EnemySpawner.cs",
               "RelativeToolTip": "Assets\\Scripts\\EnemySpawner.cs",
-              "ViewState": "AgIAAEcAAAAAAAAAAAAgwBQAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAcwCQAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-20T00:27:31.475Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "NavMeshGenerator.cs",
-              "DocumentMoniker": "C:\\Users\\Silver\\Documents\\GitHub\\Floppy_Buddy\\Assets\\Scripts\\NavMeshGenerator.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\NavMeshGenerator.cs",
-              "ToolTip": "C:\\Users\\Silver\\Documents\\GitHub\\Floppy_Buddy\\Assets\\Scripts\\NavMeshGenerator.cs",
-              "RelativeToolTip": "Assets\\Scripts\\NavMeshGenerator.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAeAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-23T02:01:25.178Z"
+              "WhenOpened": "2025-01-20T00:27:31.475Z",
+              "EditorCaption": ""
             }
           ]
         }
