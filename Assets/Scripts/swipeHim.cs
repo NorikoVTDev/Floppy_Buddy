@@ -22,23 +22,46 @@ public class SwipeHim : MonoBehaviour
     private Vector2 swipeEndPosition;
     private bool isSwiping = false;
 
-    void Update() {
+    public Rigidbody playerRb; // Reference to the Rigidbody component
+    public GameObject player;
+
+    // Singleton instance
+    public static SwipeHim Instance { get; private set; }
+
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    private void Update()
+    {
         DetectSwipe();
     }
 
-    void DetectSwipe() {
-        if (Input.GetMouseButtonDown(0)) {
+    void DetectSwipe()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
             swipeStartPosition = Input.mousePosition;
             isSwiping = true;
         }
 
-        if (Input.GetMouseButtonUp(0) && isSwiping) {
+        if (Input.GetMouseButtonUp(0) && isSwiping)
+        {
             swipeEndPosition = Input.mousePosition;
             isSwiping = false;
             Vector2 swipeDelta = swipeEndPosition - swipeStartPosition;
             float swipeDistance = swipeDelta.magnitude;
 
-            if (swipeDistance >= minSwipeDistance) {
+            if (swipeDistance >= minSwipeDistance)
+            {
                 swipeDelta.Normalize();
                 Vector3 worldDirection = mainCamera.transform.TransformDirection(new Vector3(swipeDelta.x, 0, swipeDelta.y));
                 worldDirection.y = 0;
@@ -51,7 +74,8 @@ public class SwipeHim : MonoBehaviour
         }
     }
 
-    void ApplyForceToRagdoll(Vector3 direction, float speed) {
+    void ApplyForceToRagdoll(Vector3 direction, float speed)
+    {
         if (float.IsNaN(direction.x) || float.IsNaN(direction.y) || float.IsNaN(direction.z) ||
             float.IsInfinity(direction.x) || float.IsInfinity(direction.y) || float.IsInfinity(direction.z) ||
             float.IsNaN(speed) || float.IsInfinity(speed))
@@ -61,20 +85,25 @@ public class SwipeHim : MonoBehaviour
 
         ForceMode selectedForceMode = ConvertForceMode(forceMode);
 
-        if (!applyToAllParts){
-            // Get the Rigidbody component of this object
-            Rigidbody thisRigidbody = gameObject.GetComponent<Rigidbody>();
-
-            thisRigidbody.AddForce(direction * speed * forceMultiplier, selectedForceMode);
-            if (addRandomForce) {
-                Vector3 randomDirection = new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), Random.Range(-1f, 1f));
-                thisRigidbody.AddForce(randomDirection * speed * randomForceMultiplier, selectedForceMode);
+        if (!applyToAllParts)
+        {
+            // Apply force to this object's Rigidbody
+            if (playerRb != null)
+            {
+                playerRb.AddForce(direction * speed * forceMultiplier, selectedForceMode);
+                if (addRandomForce)
+                {
+                    Vector3 randomDirection = new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), Random.Range(-1f, 1f));
+                    playerRb.AddForce(randomDirection * speed * randomForceMultiplier, selectedForceMode);
+                }
             }
         }
-        else {
+        else
+        {
             Rigidbody[] ragdollRigidbodies = GetComponentsInChildren<Rigidbody>();
 
-            foreach (Rigidbody rb in ragdollRigidbodies) {
+            foreach (Rigidbody rb in ragdollRigidbodies)
+            {
                 rb.AddForce(direction * speed * forceMultiplier, selectedForceMode);
                 // Also apply a force in a random direction
                 if (addRandomForce)
