@@ -393,6 +393,7 @@
 "Assets/Scripts/spasms.cs"
 "Assets/Scripts/swipeHim.cs"
 "Assets/Scripts/TestingClickDrag.cs"
+"Assets/Scripts/wasdHim.cs"
 "Assets/Scripts/weirdflying.cs"
 -langversion:9.0
 /deterministic
