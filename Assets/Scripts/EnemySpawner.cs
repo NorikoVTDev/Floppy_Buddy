@@ -6,6 +6,7 @@ public class EnemySpawner : MonoBehaviour
 
     // Assign the enemy prefab in the Inspector
     public GameObject enemyPrefab;
+    public GameObject playerRagdollRoot;
 
     // References
     private Transform player;
@@ -53,7 +54,7 @@ public class EnemySpawner : MonoBehaviour
         if (enemyScript != null)
         {
             // Set the player and spawner references
-            enemyScript.SetPlayer(player);
+            enemyScript.SetPlayer(player, playerRagdollRoot);
             enemyScript.SetSpawner(this);
 
             Debug.Log($"Player reference assigned: {player != null}");
@@ -72,9 +73,6 @@ public class EnemySpawner : MonoBehaviour
     {
         // Calculate the distance between the player and spawner
         float distanceToPlayer = Vector3.Distance(transform.position, player.position);
-
-        // Debug: Log the current state of variables
-        Debug.Log($"Distance to Player:{distanceToPlayer}, Current Enemies: {currentEnemiesInLevel}, Max Enemies: {maxEnemiesInLevel}, Cooldown: {Time.time - lastSpawnTime}");
 
         // Spawn an enemy if conditions are met
         if (distanceToPlayer <= spawnDistance && currentKills < targetKills && currentEnemiesInLevel < maxEnemiesInLevel && Time.time >= lastSpawnTime + spawnCooldown)

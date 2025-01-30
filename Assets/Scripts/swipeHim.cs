@@ -12,6 +12,7 @@ public class SwipeHim : MonoBehaviour
 
     public Camera mainCamera;
     public float forceMultiplier = 2f;
+    public float verticalAngle = -0.2f;
     public float minSwipeDistance = 50f;
     public bool applyToAllParts = true;
     public bool addRandomForce = true;
@@ -23,7 +24,6 @@ public class SwipeHim : MonoBehaviour
     private bool isSwiping = false;
 
     public Rigidbody playerRb; // Reference to the Rigidbody component
-    public GameObject player;
 
     // Singleton instance
     public static SwipeHim Instance { get; private set; }
@@ -64,8 +64,9 @@ public class SwipeHim : MonoBehaviour
             {
                 swipeDelta.Normalize();
                 Vector3 worldDirection = mainCamera.transform.TransformDirection(new Vector3(swipeDelta.x, 0, swipeDelta.y));
-                worldDirection.y = 0;
-                worldDirection.Normalize();
+
+                worldDirection.y = verticalAngle; // Adjust this value to control the downward angle
+                worldDirection.Normalize(); // Re-normalize to ensure consistent force magnitude
 
                 float swipeSpeed = swipeDistance / 100f;
 

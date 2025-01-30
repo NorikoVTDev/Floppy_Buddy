@@ -6,7 +6,7 @@ public class FollowPlayer : MonoBehaviour
     public Vector3 offset;
     public float smoothSpeed = 0.125f;
 
-    private void LateUpdate()
+    private void FixedUpdate()
     {
         if (target == null)
         {

@@ -9,7 +9,7 @@ public class Enemy : MonoBehaviour
 
     // AI Settings (assign in Inspector)
     [SerializeField] private float moveSpeed = 3.5f;
-    [SerializeField] private float attackRange = 2f;
+    [SerializeField] private float attackRange = 5f;
     [SerializeField] private float guardRange = 5f;
     [SerializeField] private float runAwayThreshold = 30f;
     [SerializeField] private float guardHealthThreshold = 50f;
@@ -24,13 +24,37 @@ public class Enemy : MonoBehaviour
     private bool isRagdoll = false;
 
     private Transform player;
+    public GameObject playerRagdollRoot;
     public Transform playerRb;
     private EnemySpawner spawner;
 
+    private bool alive = true;
+
+    public float minCollisionForce = 10f; // Minimum force required to trigger detection
+
+    [SerializeField] private Transform EnemyRagdollRoot;
+    [SerializeField] private bool StartRagdoll = false;
+    public Rigidbody[] Rigidbodies;
+    private CharacterJoint[] Joints;
+    private Collider[] Colliders;
+
+    private void Awake()
+    {
+        Rigidbodies = EnemyRagdollRoot.GetComponentsInChildren<Rigidbody>();
+        Joints = EnemyRagdollRoot.GetComponentsInChildren<CharacterJoint>();
+        Colliders = EnemyRagdollRoot.GetComponentsInChildren<Collider>();
+
+        if (StartRagdoll)
+        {
+            EnableRagdoll();
+        }
+    }
+
     // Public method to set the player reference
-    public void SetPlayer(Transform playerTransform)
+    public void SetPlayer(Transform playerTransform, GameObject playerRagdollRoot)
     {
         player = playerTransform;
+        this.playerRagdollRoot = playerRagdollRoot;
         if (player == null)
         {
             Debug.LogError("Player reference is not assigned!");
@@ -69,7 +93,7 @@ public class Enemy : MonoBehaviour
         agent.stoppingDistance = attackRange;
 
         // Disable ragdoll physics at the start
-        EnableRagdoll(false);
+        //EnableRagdoll(false);
     }
 
     private void Update()
@@ -81,26 +105,34 @@ public class Enemy : MonoBehaviour
             return;
         }
 
-        // Update player location every frame
-        agent.SetDestination(player.position);
 
         // AI Logic
         float distanceToPlayer = Vector3.Distance(transform.position, player.position);
-        if (health <= runAwayThreshold && !isRunningAway)
+        if (!alive)
         {
-            RunAway();
+            return;
         }
-        else if (health <= guardHealthThreshold && !isGuarding)
-        {
-            Guard();
-        }
-        else if (distanceToPlayer <= attackRange && !isAttacking)
+        //else if (health <= runAwayThreshold && !isRunningAway)
+        //{
+        //    RunAway();
+        //}
+        //else if (health <= guardHealthThreshold && !isGuarding)
+        //{
+        //    Guard();
+        //}
+        if (distanceToPlayer <= attackRange)
         {
             Attack(distanceToPlayer);
         }
-        else if (distanceToPlayer > attackRange && !isRunningAway && !isGuarding)
+        if (distanceToPlayer > attackRange && !isRunningAway && !isGuarding)
         {
             MoveTowardPlayer();
+            // Update player location every frame
+            // Check if agent is active
+            if (agent.enabled)
+            {
+                agent.SetDestination(player.position);
+            }
         }
 
         // Update Animations
@@ -115,19 +147,19 @@ public class Enemy : MonoBehaviour
     private void Attack(float distanceToPlayer)
     {
         // Stop moving and attack the player
-        agent.isStopped = true;
+        //agent.isStopped = true;
         isAttacking = true;
 
         // Perform attack logic
-        if (distanceToPlayer <= attackRange)
-        {
+        //if (distanceToPlayer <= attackRange)
+        //{
             PlayerHealth playerHealth = player.GetComponent<PlayerHealth>();
             if (playerHealth != null)
             {
                 playerHealth.TakeDamage(attackDamage);
                 Debug.Log($"Enemy attacked player for {attackDamage} damage!");
             }
-        }
+        //}
 
         // Reset attack state after a delay
         Invoke("ResetAttack", 1f);
@@ -136,7 +168,7 @@ public class Enemy : MonoBehaviour
     private void ResetAttack()
     {
         isAttacking = false;
-        agent.isStopped = false;
+        //agent.isStopped = false;
     }
 
     private void Guard()
@@ -183,68 +215,35 @@ public class Enemy : MonoBehaviour
         health -= damage;
         if (health <= 0)
         {
-            Die();
+            //Die();
         }
         else
         {
-            GoRagdoll();
+            //GoRagdoll();
             ApplyRagdollForce(forceDirection, forceStrength);
         }
     }
 
-    private void GoRagdoll()
+
+    private void EnableRagdoll()
     {
         isRagdoll = true;
-
-        // Disable AI and animator
         agent.enabled = false;
         animator.enabled = false;
-
-        // Enable ragdoll physics
-        EnableRagdoll(true);
-
-        // Start cooldown to get back up
-        Invoke("GetUp", ragdollCooldown);
-    }
-
-    private void GetUp()
-    {
-        isRagdoll = false;
-
-        // Disable ragdoll physics
-        EnableRagdoll(false);
-
-        // Re-enable AI and animator
-        animator.enabled = true;
-        agent.enabled = true;
-
-        // Reset the enemy's position and rotation
-        transform.position = GetGroundPosition();
-        transform.rotation = Quaternion.identity;
-    }
-
-    private void EnableRagdoll(bool enabled)
-    {
-        // Enable/disable ragdoll physics for all Rigidbody and Collider components
-        Rigidbody[] rigidbodies = GetComponentsInChildren<Rigidbody>();
-        Collider[] colliders = GetComponentsInChildren<Collider>();
-
-        foreach (Rigidbody rb in rigidbodies)
+        foreach (CharacterJoint joint in Joints)
         {
-            rb.isKinematic = !enabled;
+            joint.enableCollision = true;
         }
-
-        foreach (Collider col in colliders)
+        foreach (Collider collider in Colliders)
         {
-            col.enabled = enabled;
+            collider.enabled = true;
         }
-
-        // Disable the main Collider and Rigidbody when in ragdoll mode
-        Collider mainCollider = GetComponent<Collider>();
-        Rigidbody mainRigidbody = GetComponent<Rigidbody>();
-
-        if (mainCollider != null) mainCollider.enabled = !enabled;
-        if (mainRigidbody != null) mainRigidbody.isKinematic = enabled;
+        foreach (Rigidbody rigidbody in Rigidbodies)
+        {
+            rigidbody.linearVelocity = Vector3.zero;
+            rigidbody.detectCollisions = true;
+            rigidbody.useGravity = true;
+        }
     }
 
     private void ApplyRagdollForce(Vector3 direction, float strength)
@@ -254,6 +253,7 @@ public class Enemy : MonoBehaviour
 
         foreach (Rigidbody rb in rigidbodies)
         {
+            Debug.Log("POW!");
             rb.AddForce(direction * strength, ForceMode.Impulse);
         }
     }
@@ -268,14 +268,21 @@ public class Enemy : MonoBehaviour
         return transform.position;
     }
 
-    private void Die()
+    private void Die(Vector3 collisionDirection)
     {
         // Disable AI and animator
         agent.enabled = false;
         animator.enabled = false;
+        alive = false;
 
         // Enable ragdoll physics permanently
-        EnableRagdoll(true);
+        EnableRagdoll();
+
+        // Add a force in the direction of the collision
+        Vector3 forceDirection = collisionDirection.normalized;
+        //Doesn't seem to work
+        ApplyRagdollForce(forceDirection, 1000f);
+        //EnableRagdoll(true);
 
         // Notify the spawner that this enemy has been killed
         if (spawner != null)
@@ -284,6 +291,30 @@ public class Enemy : MonoBehaviour
         }
 
         // Destroy the enemy object after a delay
-        Destroy(gameObject, 5f);
+        //Destroy(gameObject, 5f);
+    }
+    private void OnTriggerEnter(Collider collider)
+    {
+        // Check if the colliding object is the specific ragdoll or part of it
+        if (collider.gameObject == playerRagdollRoot)
+        {
+            // Get the Rigidbody of the colliding object
+            Rigidbody ragdollRigidbody = collider.GetComponent<Rigidbody>();
+
+            if (ragdollRigidbody != null)
+            {
+                // Calculate the collision force (magnitude of velocity)
+                float collisionForce = ragdollRigidbody.linearVelocity.magnitude;
+
+                // Check if the force is above the threshold
+                if (collisionForce >= minCollisionForce)
+                {
+                    // Get the direction of the collision
+                    Vector3 collisionDirection = ragdollRigidbody.transform.position - collider.transform.position;
+                    Debug.Log("Specific ragdoll hit the enemy with enough force: " + collisionForce);
+                    Die(collisionDirection);
+                }
+            }
+        }
     }
 }
