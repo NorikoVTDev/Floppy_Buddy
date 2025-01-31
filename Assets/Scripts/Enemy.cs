@@ -11,6 +11,8 @@ public class Enemy : MonoBehaviour
     [SerializeField] private float moveSpeed = 3.5f;
     [SerializeField] private float attackRange = 5f;
     [SerializeField] private int attackDamage = 10;
+    [SerializeField] private float deathForce = 2f;
+    public SoundController soundController;
 
     // Internal State
     private int health = 100;
@@ -65,6 +67,11 @@ public class Enemy : MonoBehaviour
     public void SetSpawner(EnemySpawner spawnerReference)
     {
         spawner = spawnerReference;
+    }
+
+    public void setSoundController(SoundController soundControllerReference)
+    {
+        soundController = soundControllerReference;
     }
 
     private void Start()
@@ -134,6 +141,7 @@ public class Enemy : MonoBehaviour
 
     private void Attack(float distanceToPlayer)
     {
+        soundController.GetRandomSound("Sound/attack","*.wav");
         isAttacking = true;
 
         PlayerHealth playerHealth = player.GetComponent<PlayerHealth>();
@@ -221,21 +229,22 @@ public class Enemy : MonoBehaviour
         Rigidbody[] rigidbodies = GetComponentsInChildren<Rigidbody>();
         foreach (Rigidbody rb in rigidbodies)
         {
-            Debug.Log("POW!");
-            rb.AddForce(direction * strength, ForceMode.Impulse);
+            Debug.Log("POW! in direction " + direction);
+            rb.AddForce(direction * strength * deathForce, ForceMode.Impulse);
         }
     }
 
     private void Die(Vector3 collisionDirection)
     {
+        soundController.GetRandomSound("Sound/thud","*.mp3");
+        soundController.GetRandomSound("Sound/death","*.wav");
         agent.enabled = false;
         animator.enabled = false;
         alive = false;
 
         EnableRagdoll();
 
-        Vector3 forceDirection = collisionDirection.normalized;
-        ApplyRagdollForce(forceDirection, 1000f);
+        ApplyRagdollForce(collisionDirection, 2f);
 
         if (spawner != null)
         {
@@ -251,7 +260,8 @@ public class Enemy : MonoBehaviour
 
     private void OnTriggerEnter(Collider collider)
     {
-        if (collider.gameObject == playerRagdollRoot)
+        // Check if the collider is a child of playerRagdollRoot
+        if (collider.transform.IsChildOf(playerRagdollRoot.transform))
         {
             Rigidbody ragdollRigidbody = collider.GetComponent<Rigidbody>();
             if (ragdollRigidbody != null)
@@ -259,11 +269,12 @@ public class Enemy : MonoBehaviour
                 float collisionForce = ragdollRigidbody.linearVelocity.magnitude;
                 if (collisionForce >= minCollisionForce)
                 {
-                    Vector3 collisionDirection = ragdollRigidbody.transform.position - collider.transform.position;
-                    Debug.Log("Specific ragdoll hit the enemy with enough force: " + collisionForce);
+                    // Calculate the collision direction based on the child's position
+                    Vector3 collisionDirection = collider.transform.position - transform.position;
+                    Debug.Log("A child of the ragdoll hit the enemy with enough force: " + collisionForce);
                     Die(collisionDirection);
                 }
             }
         }
-    }
+}
 }

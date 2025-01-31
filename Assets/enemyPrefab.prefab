@@ -132,17 +132,14 @@ MonoBehaviour:
   animator: {fileID: 1243359702745680538}
   moveSpeed: 3.5
   attackRange: 2.5
-  guardRange: 5
-  runAwayThreshold: 30
-  guardHealthThreshold: 50
   attackDamage: 10
-  ragdollCooldown: 3
+  deathForce: 2
   playerRagdollRoot: {fileID: 0}
-  playerRb: {fileID: 0}
   minCollisionForce: 10
   EnemyRagdollRoot: {fileID: 8580810627022714530}
   StartRagdoll: 0
   Rigidbodies: []
+  wavesController: {fileID: 0}
 --- !u!65 &8319196187403358158
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -162,8 +159,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.3641777, y: 1.8234005, z: 1.3237467}
-  m_Center: {x: -0.012453079, y: 0.85, z: 0.0031802654}
+  m_Size: {x: 0.7631569, y: 1.7117097, z: 0.54758}
+  m_Center: {x: -0.006624222, y: 0.79415464, z: -0.016385257}
 --- !u!1 &225238312121611358
 GameObject:
   m_ObjectHideFlags: 0

@@ -18,6 +18,7 @@ public class EnemySpawner : MonoBehaviour
     public int currentKills = 0; // Tracks kills in the current wave
     public int currentLevel = 1; // Current wave number
     public int maxEnemiesInLevel = 3; // Max enemies allowed in the current wave
+    public SoundController soundController;
 
     // Internal state
     private int currentEnemiesInLevel = 0;
@@ -58,6 +59,7 @@ public class EnemySpawner : MonoBehaviour
         {
             enemyScript.SetPlayer(player, playerRagdollRoot);
             enemyScript.SetSpawner(this);
+            enemyScript.setSoundController(soundController);
             Debug.Log($"Player reference assigned: {player != null}");
         }
         else
