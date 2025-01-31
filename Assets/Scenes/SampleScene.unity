@@ -7962,9 +7962,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1225200244}
+  - component: {fileID: 1225200245}
   m_Layer: 0
-  m_Name: GM
-  m_TagString: Untagged
+  m_Name: Waves Controller
+  m_TagString: WavesController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7984,6 +7985,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1225200245
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1225200243}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e149e9bb5c2cb948b472469ec86a784, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  initialKillsRequired: 5
+  killsIncreasePerWave: 3
+  currentWave: 1
+  enemySpawner: {fileID: 1947594328}
 --- !u!4 &1233757291 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 626d3a57195604b459818474409b42e5, type: 3}
@@ -11471,6 +11488,7 @@ MonoBehaviour:
   currentKills: 0
   currentLevel: 1
   maxEnemiesInLevel: 3
+  wavesController: {fileID: 0}
 --- !u!1 &1951843255 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1082271958561512970, guid: 2b0c9c1f1d831fe4f9bc009a1e5c69e4, type: 3}
@@ -11592,6 +11610,7 @@ MonoBehaviour:
   randomForceMultiplier: 3
   forceMode: 1
   playerRb: {fileID: 1951843257}
+  minForceForPopOff: 10
 --- !u!114 &1951843267
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11605,7 +11624,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minForceForDamage: 5
-  damageMultiplier: 0.1
+  damageMultiplier: 10
   playerRb: {fileID: 1951843257}
   forceStrength: 2
   forceDirection: {x: 0, y: 0, z: 0}
@@ -12768,6 +12787,67 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: e6e218d2e69e6d3458fce0c662d26f5d, type: 3}
   m_PrefabInstance: {fileID: 937166897}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &6786085815577504338
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -5653804187033546960, guid: 6033caf43d6a7b8449da3f1c706100f4, type: 3}
+      propertyPath: wavesController
+      value: 
+      objectReference: {fileID: 1225200245}
+    - target: {fileID: 279960182979925356, guid: 6033caf43d6a7b8449da3f1c706100f4, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 27.07768
+      objectReference: {fileID: 0}
+    - target: {fileID: 279960182979925356, guid: 6033caf43d6a7b8449da3f1c706100f4, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.0000019073486
+      objectReference: {fileID: 0}
+    - target: {fileID: 279960182979925356, guid: 6033caf43d6a7b8449da3f1c706100f4, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -5.28
+      objectReference: {fileID: 0}
+    - target: {fileID: 279960182979925356, guid: 6033caf43d6a7b8449da3f1c706100f4, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 279960182979925356, guid: 6033caf43d6a7b8449da3f1c706100f4, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 279960182979925356, guid: 6033caf43d6a7b8449da3f1c706100f4, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 279960182979925356, guid: 6033caf43d6a7b8449da3f1c706100f4, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 279960182979925356, guid: 6033caf43d6a7b8449da3f1c706100f4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 279960182979925356, guid: 6033caf43d6a7b8449da3f1c706100f4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 279960182979925356, guid: 6033caf43d6a7b8449da3f1c706100f4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 624116751700185046, guid: 6033caf43d6a7b8449da3f1c706100f4, type: 3}
+      propertyPath: m_Name
+      value: Villager_Girl
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 6033caf43d6a7b8449da3f1c706100f4, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -12787,3 +12867,4 @@ SceneRoots:
   - {fileID: 929694555}
   - {fileID: 1178307386}
   - {fileID: 1979250084}
+  - {fileID: 6786085815577504338}

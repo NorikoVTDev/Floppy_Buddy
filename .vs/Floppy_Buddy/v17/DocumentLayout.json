@@ -3,8 +3,8 @@
   "WorkspaceRootPath": "C:\\Users\\Silver\\Documents\\GitHub\\Floppy_Buddy\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{12E8F052-6E3B-B676-B3D2-5222DE5FDE1A}|Assembly-CSharp.csproj|c:\\users\\silver\\documents\\github\\floppy_buddy\\assets\\scripts\\enemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{12E8F052-6E3B-B676-B3D2-5222DE5FDE1A}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\enemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{12E8F052-6E3B-B676-B3D2-5222DE5FDE1A}|Assembly-CSharp.csproj|C:\\Users\\Silver\\Documents\\GitHub\\Floppy_Buddy\\assets\\scripts\\villager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{12E8F052-6E3B-B676-B3D2-5222DE5FDE1A}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\villager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{12E8F052-6E3B-B676-B3D2-5222DE5FDE1A}|Assembly-CSharp.csproj|C:\\Users\\Silver\\Documents\\GitHub\\Floppy_Buddy\\assets\\scripts\\enemyspawner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -15,12 +15,20 @@
       "RelativeMoniker": "D:0:0:{12E8F052-6E3B-B676-B3D2-5222DE5FDE1A}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\playercollisiondamage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{12E8F052-6E3B-B676-B3D2-5222DE5FDE1A}|Assembly-CSharp.csproj|C:\\Users\\Silver\\Documents\\GitHub\\Floppy_Buddy\\assets\\scripts\\playerhealth.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{12E8F052-6E3B-B676-B3D2-5222DE5FDE1A}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\playerhealth.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{12E8F052-6E3B-B676-B3D2-5222DE5FDE1A}|Assembly-CSharp.csproj|c:\\users\\silver\\documents\\github\\floppy_buddy\\assets\\scripts\\wavescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{12E8F052-6E3B-B676-B3D2-5222DE5FDE1A}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\wavescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{12E8F052-6E3B-B676-B3D2-5222DE5FDE1A}|Assembly-CSharp.csproj|C:\\Users\\Silver\\Documents\\GitHub\\Floppy_Buddy\\assets\\scripts\\swipehim.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{12E8F052-6E3B-B676-B3D2-5222DE5FDE1A}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\swipehim.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{12E8F052-6E3B-B676-B3D2-5222DE5FDE1A}|Assembly-CSharp.csproj|c:\\users\\silver\\documents\\github\\floppy_buddy\\assets\\scripts\\enemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{12E8F052-6E3B-B676-B3D2-5222DE5FDE1A}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\enemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{12E8F052-6E3B-B676-B3D2-5222DE5FDE1A}|Assembly-CSharp.csproj|C:\\Users\\Silver\\Documents\\GitHub\\Floppy_Buddy\\assets\\scripts\\playerhealth.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{12E8F052-6E3B-B676-B3D2-5222DE5FDE1A}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\playerhealth.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,17 +38,43 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "WavesController.cs",
+              "DocumentMoniker": "C:\\Users\\Silver\\Documents\\GitHub\\Floppy_Buddy\\Assets\\Scripts\\WavesController.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\WavesController.cs",
+              "ToolTip": "C:\\Users\\Silver\\Documents\\GitHub\\Floppy_Buddy\\Assets\\Scripts\\WavesController.cs",
+              "RelativeToolTip": "Assets\\Scripts\\WavesController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADwAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-31T02:07:47.671Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "Villager.cs",
+              "DocumentMoniker": "C:\\Users\\Silver\\Documents\\GitHub\\Floppy_Buddy\\Assets\\Scripts\\Villager.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Villager.cs",
+              "ToolTip": "C:\\Users\\Silver\\Documents\\GitHub\\Floppy_Buddy\\Assets\\Scripts\\Villager.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Villager.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAIwB0AAABAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-31T01:41:04.776Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
               "Title": "Enemy.cs",
               "DocumentMoniker": "C:\\Users\\Silver\\Documents\\GitHub\\Floppy_Buddy\\Assets\\Scripts\\Enemy.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Enemy.cs",
               "ToolTip": "C:\\Users\\Silver\\Documents\\GitHub\\Floppy_Buddy\\Assets\\Scripts\\Enemy.cs",
               "RelativeToolTip": "Assets\\Scripts\\Enemy.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACEAAAASAAAAAAAAAA==",
+              "ViewState": "AgIAABwAAAAAAAAAAAAgwCkAAAAXAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-22T23:26:23.116Z",
               "EditorCaption": ""
@@ -53,14 +87,14 @@
               "RelativeDocumentMoniker": "Assets\\Scripts\\PlayerCollisionDamage.cs",
               "ToolTip": "C:\\Users\\Silver\\Documents\\GitHub\\Floppy_Buddy\\Assets\\Scripts\\PlayerCollisionDamage.cs",
               "RelativeToolTip": "Assets\\Scripts\\PlayerCollisionDamage.cs",
-              "ViewState": "AgIAAAgAAAAAAAAAAAAAwAgAAAAlAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-23T22:32:31.662Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 6,
               "Title": "PlayerHealth.cs",
               "DocumentMoniker": "C:\\Users\\Silver\\Documents\\GitHub\\Floppy_Buddy\\Assets\\Scripts\\PlayerHealth.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\PlayerHealth.cs",
@@ -68,8 +102,7 @@
               "RelativeToolTip": "Assets\\Scripts\\PlayerHealth.cs",
               "ViewState": "AgIAAAwAAAAAAAAAAAAiwB8AAAAmAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-23T22:03:39.832Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-23T22:03:39.832Z"
             },
             {
               "$type": "Document",
@@ -79,9 +112,10 @@
               "RelativeDocumentMoniker": "Assets\\Scripts\\swipeHim.cs",
               "ToolTip": "C:\\Users\\Silver\\Documents\\GitHub\\Floppy_Buddy\\Assets\\Scripts\\swipeHim.cs",
               "RelativeToolTip": "Assets\\Scripts\\swipeHim.cs",
-              "ViewState": "AgIAABkAAAAAAAAAAAAQwFEAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAAK8AAAAAAAAAAADwv64AAAA8AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-23T06:56:19.267Z"
+              "WhenOpened": "2025-01-23T06:56:19.267Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -91,7 +125,7 @@
               "RelativeDocumentMoniker": "Assets\\Scripts\\EnemySpawner.cs",
               "ToolTip": "C:\\Users\\Silver\\Documents\\GitHub\\Floppy_Buddy\\Assets\\Scripts\\EnemySpawner.cs",
               "RelativeToolTip": "Assets\\Scripts\\EnemySpawner.cs",
-              "ViewState": "AgIAAA8AAAAAAAAAAAAcwCQAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAFoAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-20T00:27:31.475Z",
               "EditorCaption": ""

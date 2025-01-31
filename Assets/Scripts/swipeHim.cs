@@ -25,6 +25,9 @@ public class SwipeHim : MonoBehaviour
 
     public Rigidbody playerRb; // Reference to the Rigidbody component
 
+    // Minimum force required to trigger the "pop off" event
+    public float minForceForPopOff = 10f;
+
     // Singleton instance
     public static SwipeHim Instance { get; private set; }
 
@@ -71,6 +74,13 @@ public class SwipeHim : MonoBehaviour
                 float swipeSpeed = swipeDistance / 100f;
 
                 ApplyForceToRagdoll(worldDirection, swipeSpeed);
+
+                // Trigger the "pop off" event if the swipe force is sufficient
+                if (swipeSpeed * forceMultiplier >= minForceForPopOff)
+                {
+                    // Check for collisions with NPCs or enemies
+                    CheckForCollisions(worldDirection, swipeSpeed * forceMultiplier);
+                }
             }
         }
     }
@@ -111,6 +121,62 @@ public class SwipeHim : MonoBehaviour
                 {
                     Vector3 randomDirection = new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), Random.Range(-1f, 1f));
                     rb.AddForce(randomDirection * speed * randomForceMultiplier, selectedForceMode);
+                }
+            }
+        }
+    }
+
+    void CheckForCollisions(Vector3 direction, float force)
+    {
+        // Check for collisions with NPCs or enemies
+        Collider[] hitColliders = Physics.OverlapSphere(playerRb.position, 1f); // Adjust the radius as needed
+        foreach (Collider collider in hitColliders)
+        {
+            if (collider.CompareTag("NPC") || collider.CompareTag("Enemy"))
+            {
+                // Calculate the collision force
+                float collisionForce = force;
+
+                // Trigger the "pop off" event if the collision force is sufficient
+                if (collisionForce >= minForceForPopOff)
+                {
+                    Villager npc = collider.GetComponent<Villager>();
+                    Enemy enemy = collider.GetComponent<Enemy>();
+
+                    if (npc != null)
+                    {
+                        npc.Hit(); // Call Hit() on the Villager
+                    }
+                    if (enemy != null)
+                    {
+                        enemy.TakeDamage(10, direction, force); // Call TakeDamage() on the Enemy
+                    }
+                }
+            }
+        }
+    }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        // Check if the collision is with an NPC or enemy
+        if (collision.collider.CompareTag("NPC") || collision.collider.CompareTag("Enemy"))
+        {
+            // Calculate the collision force
+            float collisionForce = collision.impulse.magnitude / Time.fixedDeltaTime;
+
+            // Trigger the "pop off" event if the collision force is sufficient
+            if (collisionForce >= minForceForPopOff)
+            {
+                Villager npc = collision.collider.GetComponent<Villager>();
+                Enemy enemy = collision.collider.GetComponent<Enemy>();
+
+                if (npc != null)
+                {
+                    npc.Hit(); // Call Hit() on the Villager
+                }
+                if (enemy != null)
+                {
+                    enemy.TakeDamage(10, collision.contacts[0].normal, collisionForce); // Call TakeDamage() on the Enemy
                 }
             }
         }
